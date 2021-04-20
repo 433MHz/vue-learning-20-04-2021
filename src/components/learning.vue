@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h2 v-if="showBooks">{{title}} - {{author}} - {{age}}</h2><br>
+        <h2 v-show="showBooks">{{title}} - {{author}} - {{age}}</h2><br>
 
         <button v-on:click="age++"> Dodaj rok </button><br>
         <button v-on:click="removeOneYear">Odejmij rok</button><br>
-        <button v-on:click="toogleBooks"><span v-if="showBooks === false">Show books</span> <span v-if="showBooks === true">Hide books</span></button>
+        <button v-on:click="toogleBooks"><span v-if="!showBooks">Show books</span> <span v-else>Hide books</span></button>
     </div>
 </template>
 
