@@ -28,12 +28,7 @@ export default {
         },
 
         toogleBooks(){
-            if(this.showBooks === true){
-                this.showBooks = false
-            }
-            else{
-                this.showBooks = true
-            }
+            this.showBooks = !this.showBooks
         }
     }
 }
