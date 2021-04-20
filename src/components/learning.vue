@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h2>{{title}} - {{author}} - {{age}}</h2><br>
+        <h2 v-if="age > 45">{{title}} - {{author}} - {{age}}</h2><br>
 
-        <button v-on:click="age = age + 1"> Dodaj rok </button><br>
+        <button v-on:click="age++"> Dodaj rok </button><br>
         <button v-on:click="removeOneYear()">Odejmij rok</button>
     </div>
 </template>
@@ -22,8 +22,16 @@ export default {
 
     methods:{
         removeOneYear(){
-            this.age = this.age - 1;
+            this.age --;
         }
     }
 }
 </script>
+
+<style>
+    #capitalMaker{
+        width: 100px;
+        height: 50px;
+        background-color: azure;
+    }
+</style>
