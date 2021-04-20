@@ -11,7 +11,7 @@
         <div class="box" @mouseenter="changeActually('mouse entered on div 1')">mouseover (enter)</div>
         <div class="box" @mouseleave="changeActually('mouse leaved div 2')">mouseover(leave)</div>
         <div class="box" @dblclick="changeActually('double clicked div 3')">double click</div>
-        <div class="box">other</div>
+        <div class="box" @mousemove="mouseMove">{{mouseX}} - {{mouseY}}</div>
     </div>
 </template>
 
@@ -26,7 +26,9 @@ export default {
             title: 'tytuł książki',
             author: 'autor książki',
             age: 45,
-            actually: ''
+            actually: '',
+            mouseX: 1,
+            mouseY: 1
         }
     },
 
@@ -41,6 +43,12 @@ export default {
 
         changeActually(actually){
             this.actually = actually
+        },
+
+        mouseMove(move){
+            this.mouseX = move.offsetX,
+            this.mouseY = move.offsetY
+            this.actually = this.mouseX + " - " + this.mouseY
         }
     }
 }
