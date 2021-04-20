@@ -11,7 +11,7 @@
             <span v-else>Unknown site</span>
         </button><br>
 
-        <a v-bind:href = link3>link</a>
+        <a :href = link3>link</a>
     </div>
 </template>
 
