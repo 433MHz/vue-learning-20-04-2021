@@ -1,6 +1,7 @@
 <template>
     <div>
         <div v-for="book in books" v-bind:key="book.title">
+            <img :src='book.img' :alt="book.title">
             <h2 v-show="showBooks">{{book.title}} - {{book.author}}</h2><br>
         </div>
        
@@ -12,6 +13,8 @@
         </button><br>
 
         <a :href = link3>link</a>
+        
+        <div id="bottomDiv">Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </div>
 </template>
 
@@ -25,9 +28,9 @@ export default {
             showBooks: true,
 
             books:[
-                {title: 'Hyperion', author: 'Daniel Simon'},
-                {title: 'Robinson Cruzoe', author:'Daniel Defoe'},
-                {title: 'Vue', author:'Vue maker'}
+                {title: 'Hyperion', author: 'Daniel Simon', img: "../src/assets/1.png"},
+                {title: 'Robinson Cruzoe', author:'Daniel Defoe', img: "../assets/2.png"},
+                {title: 'Vue', author:'Vue maker', img: "../assets/3.png"}
             ],
 
             link1: 'https://www.google.pl/',
@@ -65,5 +68,9 @@ export default {
         width: 100px;
         height: 50px;
         background-color: azure;
+    }
+
+    #bottomDiv{
+        margin-top: 400px;
     }
 </style>
