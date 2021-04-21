@@ -1,10 +1,8 @@
 <template>
     <div>
-        <div v-for="book in books" :key="book.title">
+        <div v-for="book in filteredBooks" :key="book.title">
             <div class="bookDiv" v-if="showBooks" :class="{bookDivFav: book.isFav}" @click="book.isFav = !book.isFav">
-                <div>
-                    <h3>{{book.title}}</h3> <h5> writen by: {{book.author}}</h5>
-                </div>
+                <h3>{{book.title}}</h3> <h5> writen by: {{book.author}}</h5>
             </div>
         </div>
        
@@ -52,6 +50,12 @@ export default {
             else{
                 this.link3 = this.link1
             }
+        }
+    },
+
+    computed:{
+        filteredBooks(){
+            return this.books.filter((book) => book.isFav)
         }
     }
 }
