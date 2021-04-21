@@ -4,6 +4,7 @@
     <input type="text" placeholder="Change title" ref="input"><br>
 
     <button @click="focusOnInput">Focus on input field</button><br>
+    <button @click="changeTitle">Change title</button><br>
     <button @click="makeTitleBlue">Make title blue</button><br>
     <button @click="makeTitleSalmon">Make title salmon</button>
 </template>
@@ -30,6 +31,10 @@ export default {
         makeTitleBlue(){
             this.$refs.title.classList.add('first')
             this.$refs.title.classList.remove('second')
+        },
+
+        changeTitle(){
+            this.title = this.$refs.input.value
         }
         }
 }
