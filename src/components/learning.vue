@@ -1,92 +1,48 @@
 <template>
-    <div>
-        <div v-for="book in filteredBooks" :key="book.title">
-            <div class="bookDiv" v-if="showBooks" :class="{bookDivFav: book.isFav}" @click="book.isFav = !book.isFav">
-                <h3>{{book.title}}</h3> <h5> writen by: {{book.author}}</h5>
-            </div>
-        </div>
-       
-        <button v-on:click="toogleBooks"><span v-if="!showBooks">Show books</span> <span v-else>Hide books</span></button><br>
-    </div>
+    <h1 ref="title">{{title}}</h1><br>
+
+    <input type="text" placeholder="Change title" ref="input"><br>
+
+    <button @click="focusOnInput">Focus on input field</button><br>
+    <button @click="makeTitleBlue">Make title blue</button><br>
+    <button @click="makeTitleSalmon">Make title salmon</button>
 </template>
-
-
 
 
 <script>
 export default {
     data(){
         return{
-            showBooks: true,
-
-            books:[
-                {title: 'Hyperion', author: 'Daniel Simon', isFav: true},
-                {title: 'Robinson Cruzoe', author:'Daniel Defoe', isFav: false},
-                {title: 'Vue', author:'Vue maker', isFav: true}
-            ],
-
-            link1: 'https://www.google.pl/',
-            link2: 'https://www.youtube.com/',
-            link3: this.link1
+            title: 'Title'
         }
     },
 
     methods:{
-        removeOneYear(){
-            this.age --;
+        focusOnInput(){
+            this.$refs.input.focus()
         },
 
-        toogleBooks(){
-            this.showBooks = !this.showBooks
+        makeTitleSalmon(){
+            this.$refs.title.classList.add('second')
+            this.$refs.title.classList.remove('first')
         },
 
-        toggleLink(){
-            if(this.link3 === this.link1){
-                this.link3 = this.link2
-            }
-            else if(this.link3 === this.link2){
-                this.link3 = this.link1
-            }
-            else{
-                this.link3 = this.link1
-            }
+        makeTitleBlue(){
+            this.$refs.title.classList.add('first')
+            this.$refs.title.classList.remove('second')
         }
-    },
-
-    computed:{
-        filteredBooks(){
-            return this.books.filter((book) => book.isFav)
         }
-    }
 }
 </script>
 
+
 <style>
-    #capitalMaker{
-        width: 100px;
-        height: 50px;
-        background-color: azure;
+
+    .first{
+        color: lightskyblue;
     }
 
-    #bottomDiv{
-        margin-top: 400px;
-    }
-
-    .bookDiv{
-        background-color: lightgray;
-        width: 500px;
-        display: inline-block;
-        height: 100px;
-        margin: 10px;
-        border-radius: 10px;
-    }
-
-    .bookDivFav{
-        background-color: lightgreen;
-        width: 500px;
-        display: inline-block;
-        height: 100px;
-        margin: 10px;
-        border-radius: 10px;
+    .second{
+        color: lightsalmon;
     }
 </style>
