@@ -7,7 +7,13 @@
       <h2>Here i'm making same thing</h2>
     </first><br>
     <button @click="showSecond = !showSecond">Second toogle</button><br>
-    <button @click="showFirst = !showFirst">First toogle</button>
+    <button @click="showFirst = !showFirst">First toogle</button><br>
+
+    <div id="forTeleport"></div>
+
+    <teleport to="#forTeleport">
+      <h3>I'm going to be teleported</h3>
+    </teleport>
   </div>
 </template>
 
