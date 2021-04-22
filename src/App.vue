@@ -1,8 +1,8 @@
 <template>
   <div id="contentDiv">
     <h1>Main component h1 tag</h1>
-    <First title="First h1 tag from props"></First>
-    <Second title="Second h1 tag from props"></Second>
+    <First :title="firstTitle"></First>
+    <Second :title="secondTitle"></Second>
   </div>
 </template>
 
@@ -13,6 +13,12 @@ import Second from './components/Second.vue'
 export default {
   components: { Second, First },
   
+  data(){
+    return{
+      firstTitle: 'First title with binded data',
+      secondTitle: 'Second title with binded data'
+    }
+  }
 }
 
 </script>
