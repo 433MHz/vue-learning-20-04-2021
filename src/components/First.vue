@@ -1,12 +1,12 @@
 <template>
-    <h1>{{title}}</h1>
+    <h1 :class="{red: theme, blue: !theme}">{{title}}</h1>
 </template>
 
 
 
 <script>
 export default {
-    props:['title']
+    props:['title', 'theme']
 }
 </script>
 
@@ -15,5 +15,13 @@ export default {
 <style scoped>
     h1{
         color: aquamarine;
+    }
+
+    .red{
+        color: red;
+    }
+
+    .blue{
+        color: blue;
     }
 </style>

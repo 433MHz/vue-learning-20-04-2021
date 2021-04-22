@@ -1,8 +1,11 @@
 <template>
   <div id="contentDiv">
     <h1>Main component h1 tag</h1>
-    <First :title="firstTitle"></First>
-    <Second :title="secondTitle"></Second>
+    <First :title="firstTitle" :theme="firstTheme"></First>
+    <Second :title="secondTitle"></Second><br>
+
+    <button @click="firstTheme = true">Make first red</button>
+    <button @click="firstTheme = false">Make first blue</button>
   </div>
 </template>
 
@@ -16,7 +19,9 @@ export default {
   data(){
     return{
       firstTitle: 'First title with binded data',
-      secondTitle: 'Second title with binded data'
+      secondTitle: 'Second title with binded data',
+
+      firstTheme : false
     }
   }
 }
