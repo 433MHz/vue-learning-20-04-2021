@@ -1,8 +1,8 @@
 <template>
   <div id="contentDiv">
     <h1>Main component h1 tag</h1>
-    <First></First>
-    <Second></Second>
+    <First title="First h1 tag from props"></First>
+    <Second title="Second h1 tag from props"></Second>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   
 }
 
-    First</script>
+</script>
 
 
 

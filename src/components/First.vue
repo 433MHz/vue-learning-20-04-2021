@@ -1,12 +1,12 @@
 <template>
-    <h1>This is h1 tag of first component</h1>
+    <h1>{{title}}</h1>
 </template>
 
 
 
 <script>
 export default {
-    
+    props:['title']
 }
 </script>
 
