@@ -2,7 +2,7 @@
   <div id="contentDiv">
     <h1>Main component h1 tag</h1>
     <First :title="firstTitle" :theme="firstTheme"></First>
-    <Second :title="secondTitle"></Second><br>
+    <Second :title="secondTitle" @changeColor="firstTheme = !firstTheme"></Second><br>
 
     <button @click="firstTheme = true">Make first red</button>
     <button @click="firstTheme = false">Make first blue</button>
