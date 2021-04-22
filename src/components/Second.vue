@@ -1,6 +1,6 @@
 <template>
     <h1>{{title}}</h1>
-    <button @click="clickListener">Change first color</button>
+    <button @click.alt="clickListener">Change first color</button>
 </template>
 
 
