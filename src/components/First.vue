@@ -1,5 +1,9 @@
 <template>
     <h1 :class="{red: theme, blue: !theme}">{{title}}</h1>
+
+    <slot></slot>
+
+    <slot name="withName"></slot>
 </template>
 
 

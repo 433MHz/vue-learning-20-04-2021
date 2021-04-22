@@ -1,7 +1,13 @@
 <template>
   <div id="contentDiv">
     <h1>Main component h1 tag</h1>
-    <First :title="firstTitle" :theme="firstTheme"></First>
+    <First :title="firstTitle" :theme="firstTheme">
+      <h2>This is sended by slot by default</h2>
+
+      <template v-slot:withName>
+        <h2>And this is sended by slot using name</h2>
+      </template>
+    </First>
     <Second :title="secondTitle" @changeColor="firstTheme = !firstTheme"></Second><br>
 
     <button @click="firstTheme = true">Make first red</button>
