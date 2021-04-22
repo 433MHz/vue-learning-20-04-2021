@@ -1,31 +1,19 @@
 <template>
-    <h1 :class="{red: theme, blue: !theme}">{{title}}</h1>
+    <h1>{{title}}</h1>
 
-    <slot></slot>
-
-    <slot name="withName"></slot>
+    <slot>This is default empty slot</slot>
 </template>
 
 
 
 <script>
 export default {
-    props:['title', 'theme']
+    props:['title']
 }
 </script>
 
 
 
 <style scoped>
-    h1{
-        color: aquamarine;
-    }
-
-    .red{
-        color: red;
-    }
-
-    .blue{
-        color: blue;
-    }
+    
 </style>

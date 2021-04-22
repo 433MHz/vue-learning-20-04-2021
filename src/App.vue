@@ -1,33 +1,39 @@
 <template>
-  <div id="contentDiv">
-    <h1>Main component h1 tag</h1>
-    <First :title="firstTitle" :theme="firstTheme">
-      <h2>This is sended by slot by default</h2>
-
-      <template v-slot:withName>
-        <h2>And this is sended by slot using name</h2>
-      </template>
-    </First>
-    <Second :title="secondTitle" @changeColor="firstTheme = !firstTheme"></Second><br>
-
-    <button @click="firstTheme = true">Make first red</button>
-    <button @click="firstTheme = false">Make first blue</button>
+  <div id="container">
+    <first :title="titleFirst" v-if="showFirst"> 
+      <h2>Here i'm sending data to this component from parent</h2>
+    </first><br>
+    <first v-if="showSecond" :title="titleSecond">
+      <h2>Here i'm making same thing</h2>
+    </first><br>
+    <button @click="showSecond = !showSecond">Second toogle</button><br>
+    <button @click="showFirst = !showFirst">First toogle</button>
   </div>
 </template>
 
 
 <script>
 import First from './components/First.vue'
-import Second from './components/Second.vue'
+
 export default {
-  components: { Second, First },
+  components: {First },
   
   data(){
     return{
-      firstTitle: 'First title with binded data',
-      secondTitle: 'Second title with binded data',
+      titleFirst: 'First component',
+      titleSecond: 'Second component',
+      showSecond: false,
+      showFirst: false
+    }
+  },
 
-      firstTheme : false
+  methods:{
+    toggleFirstComponent(data){
+      this.titleFirst = data
+    },
+
+    toggleSecondComponent(data){
+      this.titleSecond = data
     }
   }
 }
@@ -37,12 +43,8 @@ export default {
 
 
 <style scoped>
-#contentDiv{
-  width: 100%;
-  height: 500px;
-  background-color: lightgrey;
-  margin: none;
+#container{
   text-align: center;
+  color: white;
 }
-
 </style>
