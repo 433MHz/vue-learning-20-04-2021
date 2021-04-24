@@ -1,5 +1,5 @@
 <template>
-
+<form @submit.prevent="">
     <input type="email" placeholder="email" v-model="email" @keyup="keyPressed"><br>
     <input type="text" placeholder="first name" v-model="firstName"><br>
     <input type="text" placeholder="second name" v-model="secondName"><br>
@@ -13,13 +13,13 @@
 
     <h3>email: {{email}}</h3><br>
     <div v-for="emails in emailList" :key="emails">
-       {{emails}} <button @click="removeFromList(emails)">remove</button>
+      <span @click="removeFromList(emails)" class="emailFromListRemove">{{emails}}</span> 
     </div>
     <h3>first name: {{firstName}}</h3><br>
     <h3>second name: {{secondName}}</h3><br>
     <h3>option: {{option}}</h3><br>
     <h3>checkBox: {{checkbox}}</h3>
-
+</form>
 </template>
 
 <script>
@@ -41,17 +41,13 @@ export default {
                 this.emailList.push(this.email),
                 this.email = ''
             }
-        },
-
-        removeFromList(value){
-            
-            this.emailList = this.emailList.filter((current) => {if(current != value) return current})
-
         }
     }
 }
 </script>
 
 <style>
-    
+    .emailFromListRemove{
+        display: inline-block;
+    }
 </style>
