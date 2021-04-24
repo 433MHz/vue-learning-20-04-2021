@@ -1,56 +1,46 @@
 <template>
-  <div id="container">
-    <first :title="titleFirst" v-if="showFirst"> 
-      <h2>Here i'm sending data to this component from parent</h2>
-    </first><br>
-    <first v-if="showSecond" :title="titleSecond">
-      <h2>Here i'm making same thing</h2>
-    </first><br>
-    <button @click="showSecond = !showSecond">Second toogle</button><br>
-    <button @click="showFirst = !showFirst">First toogle</button><br>
-
-    <div id="forTeleport"></div>
-
-    <teleport to="#forTeleport">
-      <h3>I'm going to be teleported</h3>
-    </teleport>
-  </div>
+<div id="container">
+    <h1>Reaction timer</h1>    
+    <button @click="start" :disabled="isPlaying">play</button><br>
+    <block :delay="delay" v-if="isPlaying" @reactionTime="emitedFromBlock($event)"></block>
+    <result :timer="timer" v-if="!isPlaying"></result>
+</div>
 </template>
 
 
 <script>
-import First from './components/First.vue'
-
+import Block from './components/Block.vue'
+import Result from './components/Result.vue'
 export default {
-  components: {First },
-  
+  components: {Block, Result },
   data(){
     return{
-      titleFirst: 'First component',
-      titleSecond: 'Second component',
-      showSecond: false,
-      showFirst: false
+      isPlaying: false,
+      delay: null,
+      timer: null,
     }
   },
 
   methods:{
-    toggleFirstComponent(data){
-      this.titleFirst = data
+    start(){
+      this.isPlaying = true,
+      this.delay = 2000 + Math.random() * 5000
     },
 
-    toggleSecondComponent(data){
-      this.titleSecond = data
+    emitedFromBlock(timer){
+      this.timer = timer,
+      this.isPlaying = false
     }
   }
 }
-
 </script>
 
 
 
 <style scoped>
-#container{
-  text-align: center;
-  color: white;
-}
+  #container{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 70px;
+  }
 </style>
