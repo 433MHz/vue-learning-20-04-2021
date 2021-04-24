@@ -1,5 +1,4 @@
 <template>
-  <form>
 
     <input type="email" placeholder="email" v-model="email" @keyup="keyPressed"><br>
     <input type="text" placeholder="first name" v-model="firstName"><br>
@@ -14,14 +13,13 @@
 
     <h3>email: {{email}}</h3><br>
     <div v-for="emails in emailList" :key="emails">
-        <h3 class="h3EmailList">email in list: {{emails}}</h3><br>
+       {{emails}} <button @click="removeFromList(emails)">remove</button>
     </div>
     <h3>first name: {{firstName}}</h3><br>
     <h3>second name: {{secondName}}</h3><br>
     <h3>option: {{option}}</h3><br>
     <h3>checkBox: {{checkbox}}</h3>
 
-  </form>
 </template>
 
 <script>
@@ -39,19 +37,21 @@ export default {
 
     methods:{
         keyPressed(e){
-            if(e.key === 'Enter' && this.email){
+            if(e.key === 'Enter' && this.email && !this.emailList.includes(this.email)){
                 this.emailList.push(this.email),
                 this.email = ''
             }
+        },
+
+        removeFromList(value){
+            
+            this.emailList = this.emailList.filter((current) => {if(current != value) return current})
+
         }
     }
 }
 </script>
 
 <style>
-    .h3EmailList{
-        border: 1px gray solid;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
+    
 </style>
