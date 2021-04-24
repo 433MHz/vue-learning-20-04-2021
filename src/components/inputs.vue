@@ -10,7 +10,7 @@
         <option value="second">second option</option>
     </select><br>
 
-    <input type="checkbox" v-model="checkbox">
+    <input type="checkbox" v-model="checkbox" value="checkbox value">
 
     <h3>email: {{email}}</h3><br>
     <h3>first name: {{firstName}}</h3><br>
@@ -29,7 +29,7 @@ export default {
             firstName: null,
             secondName: null,
             option: null,
-            checkbox: false
+            checkbox: []
         }
     }
 }
