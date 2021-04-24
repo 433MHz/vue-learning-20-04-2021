@@ -13,7 +13,9 @@
     <input type="checkbox" v-model="checkbox" value="checkbox value">
 
     <h3>email: {{email}}</h3><br>
-    <h3>email list: {{emailList}}</h3>
+    <div v-for="emails in emailList" :key="emails">
+        <h3 class="h3EmailList">email in list: {{emails}}</h3><br>
+    </div>
     <h3>first name: {{firstName}}</h3><br>
     <h3>second name: {{secondName}}</h3><br>
     <h3>option: {{option}}</h3><br>
@@ -47,5 +49,9 @@ export default {
 </script>
 
 <style>
-
+    .h3EmailList{
+        border: 1px gray solid;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 </style>
